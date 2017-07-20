@@ -8,13 +8,13 @@ module.exports = {
 };
 
 function GetTodoById(req, res, next) {
-    var url_parts = req.url.split('/')
-    console.log(url_parts[url_parts.length-1])
+    var url_parts = req.url.split('/');
+    console.log(url_parts[url_parts.length-1]);
 
     res.json({
         id: parseInt(url_parts[url_parts.length-1]),
-        todo:  'Sample text',
+        todo:  'Kill bill',
         createTime:  '2017-07-18T22:16:09.497Z',
-        completed: true
+        completed: false
     });
 }

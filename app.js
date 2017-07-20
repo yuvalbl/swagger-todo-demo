@@ -1,7 +1,10 @@
 'use strict';
 
 var SwaggerExpress = require('swagger-express-mw');
-var app = require('express')();
+var express = require('express');
+var app = express();
+var path = require('path');
+
 module.exports = app; // for testing
 
 var config = {
@@ -20,4 +23,10 @@ SwaggerExpress.create(config, function(err, swaggerExpress) {
   if (swaggerExpress.runner.swagger.paths['/hello']) {
     console.log('try this:\ncurl http://127.0.0.1:' + port + '/hello?name=Scott');
   }
+
+  // for swagger UI
+  app.get('/swagger.yaml', function(req, res) {
+      res.sendFile(path.join(__dirname, '/api/swagger/swagger.yaml'))
+  });
+  app.use(express.static(path.join(__dirname, 'public')));
 });

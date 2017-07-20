@@ -21,9 +21,9 @@ paths:
   /:
     get:
         # binds a127 app logic to a route
-      x-swagger-router-controller: get_all_taodos
+      x-swagger-router-controller: get_all_todos
       description: get all todos
-      operationId: getAllTodos
+      operationId: GetAllTodos
       parameters: []
       responses:
         200:
